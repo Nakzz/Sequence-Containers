@@ -1,95 +1,73 @@
 //============================================================================
-// Name        : p0.cpp
+// Name        : p1.cpp
 // Author      : Ajmain Naqib
 // Version     :
-// Copyright   : Your copyright notice
-// Description : P0, Ansi-style
+// Copyright   :
+// Description : P1:
 //============================================================================
 
 #include <iostream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
+vector<int> task1(vector<int> v); // Can take user input
+vector<int> task2(vector<int> v, int key, int index);
+void task3();
+void task4();
+void printVector(vector<int> v);
+
 int main() {
 
-	string name;
-	int nameLen;
-//    int spaceLen;
+	//empty vector created
+	vector<int> v;
 
-	string namePrompt = "Your name here ";
-	string welcomePrompt = "* Welcome ";
-	string enjoyPrompt = "! Enjoy the class! *";
+	v = task1(v);
+	printVector(v);
 
-	cout << namePrompt;
-
-//    cin >> name;
-//    name= cin.get();
-
-	getline(cin, name); // Get new line input
-	cout << endl;
-
-	if (name.length() == 0) {
-		//print first line of ***
-		for (int i = 0; i < 43; i++) {
-			cout << "*";
-		}
-		cout << endl << "*";
-
-		//print first line of spaces
-		for (int i = 0; i < 41; i++) {
-			cout << " ";
-		}
-
-		cout << "*" << endl;
-		cout << "* Welcome CS368 Student! Enjoy the class! *";
-		cout << endl << "*";
-
-		// Print second line of spaces
-		for (int i = 0; i < 41; i++) {
-			cout << " ";
-		}
-		cout << "*" << endl;
-
-		//print last line of ***
-		for (int i = 0; i < 43; i++) {
-			cout << "*";
-		}
-		cout << endl;
-
-	} else {
-		//compute first lines of ****
-		nameLen = name.length();
-
-		//print first line of ***
-		for (int i = 0; i < 30 + nameLen; i++) {
-			cout << "*";
-		}
-		cout << endl << "*";
-
-		//print line of space
-		for (int i = 0; i < 28 + nameLen; i++) {
-			cout << " ";
-		}
-		cout << "*" << endl;
-
-		//print proper prompt
-		cout << welcomePrompt + name + enjoyPrompt;
-
-		cout << endl << "*";
-
-		//print last line of ***
-		for (int i = 0; i < 28 + nameLen; i++) {
-			cout << " ";
-		}
-		cout << "*" << endl;
-
-		//print last line of space
-		for (int i = 0; i < 30 + nameLen; i++) {
-			cout << "*";
-		}
-		cout << endl;
-	}
+//	task2();
+//	printVector(v);
+//
+//	task3();
+//	printVector(v);
+//
+//	task4();
+//	printVector(v);
 
 	return 0;
+}
+
+vector<int> task1(vector<int> v) {
+
+	int input;
+	int i;
+
+	cout << "enter a value for the vector ";
+	while (cin >> i && i >= 0) {
+		v.push_back(i);
+		cout << "enter a value for the vector ";
+
+	}
+
+	return v;
+
+}
+
+vector<int> task2(vector<int> v, int key, int index) {
+return v;
+}
+
+void task3() {
+}
+
+void task4() {
+}
+
+void printVector(vector<int> v) {
+	cout <<"printing " << endl;
+
+	for (int i = 0; i < v.size(); i++) {
+		cout <<"value at pos" << i << ": is "<< v.at(i) << endl;
+	}
 }
