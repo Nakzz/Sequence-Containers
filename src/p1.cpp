@@ -9,6 +9,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -38,23 +39,12 @@ int main() {
 //	cout << " the vector after insertion of a new value is" << endl;
 //	printVector(v);
 
-	cout << "Enter the position of the element you want to delete" << endl;
-	cin >> inIndex;
-	v = task3(v, inIndex);
-	printVector(v);
-
-	cout << "Enter the position of the element you want to delete" << endl;
-	cin >> inIndex;
-	v = task3(v, inIndex);
-	printVector(v);
-
-	cout << "Enter the position of the element you want to delete" << endl;
-	cin >> inIndex;
-	v = task3(v, inIndex);
-	printVector(v);
+//	cout << "Enter the position of the element you want to delete" << endl;
+//	cin >> inIndex;
+//	v = task3(v, inIndex);
+//	printVector(v);
 
 	task4(v);
-	printVector(v);
 
 	return 0;
 }
@@ -109,7 +99,7 @@ vector<int> task2(vector<int> v, int key, signed int index) {
 
 	v.insert(positionIterator, 1, key);
 
-	cout << "added new val" << endl;
+//	cout << "added new val" << endl;
 
 	return v;
 }
@@ -148,8 +138,25 @@ vector<int> task3(vector<int> v,signed int index) {
 	return v;
 }
 
+/**
+ * Prints sorted and duplicate removed elements of the vector
+ *
+ * param v is the vector
+ */
 void task4(vector<int> v) {
-	cout << "Enter the position of the element you want to delete" << endl;
+
+	sort(v.begin(), v.end());
+	cout << "sorted vector is" << endl;
+
+	printVector(v);
+
+
+	v.erase( unique( v.begin(), v.end() ), v.end() );
+
+	cout << "Sorted vector after duplicate removal is" << endl;
+	printVector(v);
+
+
 }
 
 void printVector(vector<int> v) {
