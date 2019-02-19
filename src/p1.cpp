@@ -21,7 +21,7 @@ void printVector(vector<int> v);
 
 int main() {
 
-	//empty vector created
+	//proper vars declared
 	vector<int> v;
 	int inKey;
 	signed inIndex;
@@ -30,19 +30,19 @@ int main() {
 	cout << " The elements of the container are" << endl;
 	printVector(v);
 
-//	cout << "Enter the value of the element you want to enter" << endl;
-//	cin >> inKey;
-//	cout << "enter the position" << endl;
-//	cin >> inIndex;
-//
-//	v = task2(v, inKey, inIndex);
-//	cout << " the vector after insertion of a new value is" << endl;
-//	printVector(v);
+	cout << "Enter the value of the element you want to enter" << endl;
+	cin >> inKey;
+	cout << "enter the position" << endl;
+	cin >> inIndex;
 
-//	cout << "Enter the position of the element you want to delete" << endl;
-//	cin >> inIndex;
-//	v = task3(v, inIndex);
-//	printVector(v);
+	v = task2(v, inKey, inIndex);
+	cout << " the vector after insertion of a new value is" << endl;
+	printVector(v);
+
+	cout << "Enter the position of the element you want to delete" << endl;
+	cin >> inIndex;
+	v = task3(v, inIndex);
+	printVector(v);
 
 	task4(v);
 
@@ -58,12 +58,11 @@ int main() {
  */
 vector<int> task1(vector<int> v) {
 
-	int input;
 	int i;
 
 	cout << "enter a value for the vector ";
 	while (cin >> i && i >= 0) {
-		v.push_back(i);
+		v.push_back(i); // add i to the end of the vector
 		cout << "enter a value for the vector ";
 
 	}
@@ -113,7 +112,7 @@ vector<int> task2(vector<int> v, int key, signed int index) {
  */
 vector<int> task3(vector<int> v,signed int index) {
 
-	if(v.size()==0){
+	if(v.size()==0){ // if empty
 		return v;
 	}
 
@@ -145,13 +144,14 @@ vector<int> task3(vector<int> v,signed int index) {
  */
 void task4(vector<int> v) {
 
+	//sort vector
 	sort(v.begin(), v.end());
 	cout << "sorted vector is" << endl;
 
 	printVector(v);
 
-
-	v.erase( unique( v.begin(), v.end() ), v.end() );
+// removes consecutive duplicates elements
+	v.erase(unique( v.begin(), v.end() ), v.end() );
 
 	cout << "Sorted vector after duplicate removal is" << endl;
 	printVector(v);
@@ -159,6 +159,11 @@ void task4(vector<int> v) {
 
 }
 
+/**
+ * Helper method that prints content of the vector
+ *
+ * param v is the vector
+ */
 void printVector(vector<int> v) {
 //	cout <<"printing " << endl;
 
